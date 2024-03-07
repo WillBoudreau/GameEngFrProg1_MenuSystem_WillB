@@ -16,6 +16,10 @@ public class MainMenu_Buttons : MonoBehaviour
         {
             gamemanager.gameScenes = GameManager.GameScenes.Gameplay;
         }
+        if(Scenename == "Gameplay_Scene2")
+        {
+            gamemanager.gameScenes = GameManager.GameScenes.Gameplay;
+        }
         SceneManager.LoadScene(Scenename);
     }
     void OnSceneLoaded(Scene scene,LoadSceneMode mode)
