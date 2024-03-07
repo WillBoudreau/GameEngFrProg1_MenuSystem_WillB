@@ -9,48 +9,75 @@ public class UIManager : MonoBehaviour
     public GameObject PauseUI;
     public GameObject WinUI;
     public GameObject GamePlayUI;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public GameObject OptionsUI;
+    public GameObject GameOverUI;
+    bool CursorVisisble;
     // Update is called once per frame
     void Update()
     {
-        
+        if(CursorVisisble == true)
+        {
+            Cursor.visible = true;
+        }
     }
     public void MainMenuUI()
     {
-        Cursor.visible = true;
+        CursorVisisble = true;
         MainUI.SetActive(true);
         PauseUI.SetActive(false);
         WinUI.SetActive(false);
         GamePlayUI.SetActive(false);
+        OptionsUI.SetActive(false);
+        GameOverUI.SetActive(false);
     }
     public void Pause()
     {
-        Cursor.visible = true;
+        CursorVisisble = true;
         MainUI.SetActive(false);
         PauseUI.SetActive(true);
         WinUI.SetActive(false);
         GamePlayUI.SetActive(false);
+        OptionsUI.SetActive(false);
+        GameOverUI.SetActive(false);
     }
     public void Win()
     {
-        Cursor.visible = false;
+        CursorVisisble = true;
         MainUI.SetActive(false);
         PauseUI.SetActive(false);
         WinUI.SetActive(true);
         GamePlayUI.SetActive(false);
+        OptionsUI.SetActive(false);
+        GameOverUI.SetActive(false);
     }
     public void GamePlay()
     {
-        Cursor.visible=true;
+        Cursor.visible = false;
         MainUI.SetActive(false);
         PauseUI.SetActive(false);
         WinUI.SetActive(false);
         GamePlayUI.SetActive(true);
-        SceneManager.LoadScene("Gameplay_Scene");
+        OptionsUI.SetActive(false);
+        GameOverUI.SetActive(false);
+    }
+    public void Options()
+    {
+        CursorVisisble = true;
+        MainUI.SetActive(false);
+        PauseUI.SetActive(false);
+        WinUI.SetActive(false);
+        GamePlayUI.SetActive(false);
+        OptionsUI.SetActive(true);
+        GameOverUI.SetActive(false);
+    }
+    public void GameOver()
+    {
+        CursorVisisble = true;
+        MainUI.SetActive(false);
+        PauseUI.SetActive(false);
+        WinUI.SetActive(false);
+        GamePlayUI.SetActive(false);
+        OptionsUI.SetActive(false);
+        GameOverUI.SetActive(true);
     }
 }

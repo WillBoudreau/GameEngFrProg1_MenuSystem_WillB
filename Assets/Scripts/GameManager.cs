@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameScenes { MainMenu, PauseMenu , GameOver , Win, Gameplay};
+    public enum GameScenes { MainMenu, PauseMenu , GameOver , Win, Gameplay, Options};
 
     public GameScenes gameScenes;
     public UIManager uiManager;
+    public GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameScenes = GameScenes.MainMenu;
+        Player.SetActive(true);
     }
 
     // Update is called once per frame
@@ -32,10 +35,17 @@ public class GameManager : MonoBehaviour
             case GameScenes.Gameplay:
                 GamePlay();
                 break;
+            case GameScenes.GameOver:
+                GameOver();
+                break;
+            case GameScenes.Options:
+                Options();
+                break;
         }
     }
     public void MainMenu()
     {
+        Player.GetComponent<SpriteRenderer>().enabled = false;
         uiManager.MainMenuUI();
     }
     public void Pause()
@@ -48,6 +58,16 @@ public class GameManager : MonoBehaviour
     }
     public void GamePlay()
     {
+        Player.SetActive(true);
+        Player.GetComponent<SpriteRenderer>().enabled = true;
         uiManager.GamePlay();
+    }
+    public void Options()
+    {
+        uiManager.Options();
+    }
+    public void GameOver()
+    {
+        uiManager.GameOver();
     }
 }
