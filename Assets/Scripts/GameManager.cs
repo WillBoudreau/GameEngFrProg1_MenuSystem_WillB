@@ -21,6 +21,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Escape Pressed");
+            if(gameScenes == GameScenes.Gameplay)
+            {
+                Pause();
+            }
+            else
+            {
+                Resume();
+            }
+        }
         switch(gameScenes)
         {
             case GameScenes.MainMenu:
@@ -54,9 +66,19 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;
         gameScenes = GameScenes.PauseMenu;
         uiManager.Pause();
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            GamePlay();
+        }
+    }
+    public void Resume()
+    {
+        Time.timeScale = 1.0f;
+        gameScenes = GameScenes.Gameplay;
     }
     public void Win()
     {
+        Time.timeScale = 0.0f;
         gameScenes = GameScenes.Win;
         uiManager.Win();
     }

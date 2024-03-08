@@ -20,9 +20,13 @@ public class LevelManager : MonoBehaviour
         {
             gamemanager.gameScenes = GameManager.GameScenes.Gameplay;
         }
+        else if(Scenename == "GameWin")
+        {
+            gamemanager.gameScenes = GameManager.GameScenes.Win;
+        }
         else if(Scenename == "GameOver_Scene")
         {
-            gamemanager.gameScenes = GameManager.GameScenes.Gameplay;
+            gamemanager.gameScenes = GameManager.GameScenes.GameOver;
         }
         SceneManager.LoadScene(Scenename);
     }
