@@ -52,7 +52,7 @@ public class UIManager : MonoBehaviour
     }
     public void GamePlay()
     {
-        Cursor.visible = false;
+        Cursor.visible = true;
         MainUI.SetActive(false);
         PauseUI.SetActive(false);
         WinUI.SetActive(false);
@@ -62,6 +62,7 @@ public class UIManager : MonoBehaviour
     }
     public void Options()
     {
+        Debug.Log("Options Menu");
         CursorVisisble = true;
         MainUI.SetActive(false);
         PauseUI.SetActive(false);

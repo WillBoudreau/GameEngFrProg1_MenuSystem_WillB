@@ -46,28 +46,39 @@ public class GameManager : MonoBehaviour
     public void MainMenu()
     {
         Player.GetComponent<SpriteRenderer>().enabled = false;
+        gameScenes = GameScenes.MainMenu;
         uiManager.MainMenuUI();
     }
     public void Pause()
     {
+        Time.timeScale = 0.0f;
+        gameScenes = GameScenes.PauseMenu;
         uiManager.Pause();
     }
     public void Win()
     {
+        gameScenes = GameScenes.Win;
         uiManager.Win();
     }
     public void GamePlay()
     {
+        Time.timeScale = 1.0f;
         Player.SetActive(true);
         Player.GetComponent<SpriteRenderer>().enabled = true;
         uiManager.GamePlay();
     }
     public void Options()
     {
+        gameScenes = GameScenes.Options;
         uiManager.Options();
+    }
+    public void Quit()
+    {
+        Application.Quit();
     }
     public void GameOver()
     {
+        gameScenes = GameScenes.GameOver;
         uiManager.GameOver();
     }
 }

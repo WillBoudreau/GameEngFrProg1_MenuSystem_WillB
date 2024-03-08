@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu_Buttons : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
     private GameManager gamemanager;
     public GameObject player;
@@ -16,7 +16,11 @@ public class MainMenu_Buttons : MonoBehaviour
         {
             gamemanager.gameScenes = GameManager.GameScenes.Gameplay;
         }
-        if(Scenename == "Gameplay_Scene2")
+        else if(Scenename == "Gameplay_Scene2")
+        {
+            gamemanager.gameScenes = GameManager.GameScenes.Gameplay;
+        }
+        else if(Scenename == "GameOver_Scene")
         {
             gamemanager.gameScenes = GameManager.GameScenes.Gameplay;
         }
