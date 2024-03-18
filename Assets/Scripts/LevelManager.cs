@@ -28,6 +28,10 @@ public class LevelManager : MonoBehaviour
         {
             gamemanager.gameScenes = GameManager.GameScenes.GameOver;
         }
+        else if(Scenename == "Menu_MainMenu")
+        {
+            gamemanager.gameScenes = GameManager.GameScenes.MainMenu;
+        }
         SceneManager.LoadScene(Scenename);
     }
     void OnSceneLoaded(Scene scene,LoadSceneMode mode)

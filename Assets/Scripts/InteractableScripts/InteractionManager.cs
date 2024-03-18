@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class InteractionManager : MonoBehaviour
 {
-    public InteractableOBJ Interactable;
+    public GameObject pickUp = null;
+    public InteractableOBJ Interactable = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,13 +17,21 @@ public class InteractionManager : MonoBehaviour
     {
        DetermineInteractable();
     }
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Interactable = other.GetComponent<InteractableOBJ>();
+        if(other.gameObject.CompareTag("Pickup"))
+        {
+            pickUp = other.gameObject;
+            Interactable = other.GetComponent<InteractableOBJ>();
+        }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        Interactable = null;
+        if(other.gameObject.CompareTag("Pickup"))
+        {
+            pickUp = null;
+            Interactable = null;
+        }
     }
     void DetermineInteractable()
     {
