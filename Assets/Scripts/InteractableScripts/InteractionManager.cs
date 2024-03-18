@@ -15,11 +15,11 @@ public class InteractionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       DetermineInteractable();
+     
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Pickup"))
+        if(other.gameObject.CompareTag("Interactable"))
         {
             pickUp = other.gameObject;
             Interactable = other.GetComponent<InteractableOBJ>();
@@ -27,15 +27,11 @@ public class InteractionManager : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Pickup"))
+        if(other.gameObject.CompareTag("Interactable"))
         {
             pickUp = null;
             Interactable = null;
         }
-    }
-    void DetermineInteractable()
-    {
-
     }
     void ExecuteInteractable()
     {
